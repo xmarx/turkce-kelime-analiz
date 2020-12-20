@@ -1,5 +1,5 @@
 # Türkçe Kelime Analiz
-Bir metindeki türkçe kelimelerin analizini yapacağız.
+Bir metindeki Türkçe kelimelerin analizini yapacağız.
 
 ## Buna neden ihtiyaç duyduk?
 Gençler ve konuştuğumuz dille ilgili şöyle bir eleştiriyi mutlaka duymuşuzdur. "Gençlerimiz konuşmayı bilmiyorlar, 200-300 kelime ile günlük yaşamlarını idame ettiriyorlar." Amacımız bu 200-300 kelimeyi bulmak. Yazılan metinlerdeki en geniş kelime çeşitliliği nerede var, kim yazıyor onu bulmak.
