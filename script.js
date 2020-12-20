@@ -1,6 +1,6 @@
 function Kaydet() {
   var data = document.getElementById('data1');
-  var data2=data.value.split('.');
+  var data2 = data.value.split('.');
   //var data4 = data.replace('.|,|?','');
   var data3 = data.value.split(' ');
   var html = ''
@@ -13,13 +13,7 @@ function Kaydet() {
   var cumleSayisi = data2.length;
 }
 
-var app1 = new Vue({
-el: '#app1',
-data: {
-kelimeSayisi: kelimeSayisi,
-cumleSayisi: cumleSayisi,
-}
-})
+
 
 /* function Kaydet() {
   var data = document.getElementById('data1');
@@ -39,4 +33,4 @@ cumleSayisi: cumleSayisi,
 
 Kaydet();
 
-var baglaclar =['ve', 'ile','ancak','fakat','ama'];
+var baglaclar = ['ve', 'ile', 'ancak', 'fakat', 'ama'];

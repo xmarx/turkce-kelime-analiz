@@ -3,6 +3,11 @@
   
 } */
 
+.cont {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 span.kelime {
   background-color: blue;
   border-radius: 10px;

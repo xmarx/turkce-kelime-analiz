@@ -5,20 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
   <title>Kelime Analiz</title>
 </head>
 
 <body>
-  <div id="app1">
+  <div id="app1" class="cont">
     <div class="column">
-      <textarea name="data1" id="data1" cols="10"
-        rows="5">Bakan Koca, “28 can kaybımız var. Üçü ağır yedi kişi yoğun bakımda, 243 kişi halen tedavi görüyor. 642 kişinin tedavisi tamamlanmış durumda. 112 Acil Yardım Ekipleri, UMKE Timleri, hastanelerimizle, acımızı azaltmak için İzmir’de görev başındayız.” ifadelerini kullandı.</textarea>
+      <h2>Metin giriniz veya varolan metni düzenleyiniz.</h2>
+      <textarea v-model="input_data" name="data1" id="data1" cols="10"
+        rows="5">Buraya metin girilecek. Girilen metnin kelime sayısını alacağız.</textarea>
       <button onclick="Kaydet()">Kaydet</button>
     </div>
     <div class="column">
+      <h2>Sonuçlar burada görüntülenecektir.</h2>
       <p id="sonuc">
 
       </p>
@@ -42,6 +44,22 @@
       </div>
     </div>
   </div>
+
+  <script>
+
+
+
+    var app1 = new Vue({
+      el: '#app1',
+      data: {
+        kelimeSayisi: kelimeSayisi,
+        cumleSayisi: cumleSayisi,
+      }
+    })
+
+
+
+  </script>
 </body>
 
 </html>
