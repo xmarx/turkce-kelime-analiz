@@ -1,0 +1,16 @@
+/* textarea {
+  width:100%;
+  
+} */
+
+span.kelime {
+  background-color: blue;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+  margin-right: 5px;
+}
+
+p#sonuc {
+  width: 100px !important;
+}
