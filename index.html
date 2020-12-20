@@ -1,0 +1,32 @@
+
+
+
+<div id="app1">
+  <div class="column column-50">
+    <textarea name="data1" id="data1" cols="10" rows="5">Bakan Koca, “28 can kaybımız var. Üçü ağır yedi kişi yoğun bakımda, 243 kişi halen tedavi görüyor. 642 kişinin tedavisi tamamlanmış durumda. 112 Acil Yardım Ekipleri, UMKE Timleri, hastanelerimizle, acımızı azaltmak için İzmir’de görev başındayız.” ifadelerini kullandı.</textarea>
+    <button onclick="Kaydet()">Kaydet</button>
+  </div>
+  <div class="column column-50">
+    <p id="sonuc">
+
+    </p>
+    <div id="stat">
+      <table>
+        <tr>
+          <td>Kelime Sayısı</td>
+          <td>:</td>
+          <td><span id="ks">{{ kelimeSayisi }}</span> </td>
+        </tr>
+        <tr>
+          <td>Cümle Sayısı</td>
+          <td>:</td>
+          <td><span id="cs"></span></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
