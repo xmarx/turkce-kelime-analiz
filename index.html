@@ -25,19 +25,28 @@
   <div id="app1" class="cont">
     <div class="column">
       <h2>Metin giriniz veya varolan metni düzenleyiniz.</h2>
-      <textarea v-model="input_data" cols="10" rows="5">
-        Buraya metin girilecek. Girilen metnin kelime sayısını alacağız.
-      </textarea>
+      <textarea v-model="input_data" cols="10" rows="5"></textarea>
     </div>
 
     <div class="column">
       <h2>Sonuçlar burada görüntülenecektir.</h2>
-
       <table>
         <tbody>
           <tr>
             <td>Girilen Metin</td>
             <td>{{input_data}}</td>
+          </tr>
+          <tr>
+            <td>Kelime Kelime</td>
+            <td>{{kelimeKelime}}</td>
+          </tr>
+          <tr>
+            <td>Kelime Sayısı</td>
+            <td>{{kelimeSayisi}}</td>
+          </tr>
+          <tr>
+            <td>Cümle Sayısı</td>
+            <td>{{cumleSayisi}}</td>
           </tr>
         </tbody>
       </table>
@@ -51,12 +60,21 @@
           input_data: 'Buraya veri girilecek. Girilen veri aşağıda gösterilecek.',
         }
 
-        methods: {
 
+      },
 
-
+      computed: {
+        kelimeKelime() {
+          return this.input_data.split(' ');
+        },
+        kelimeSayisi() {
+          return this.input_data.split(' ').length
+        },
+        cumleSayisi(){
+          return this.input_data.split('.').length
         }
       }
+
     }
 
     Vue.createApp(DataAnaliz).mount('#app1')
