@@ -8,7 +8,16 @@
 
   <!-- <script src="script.js"></script> -->
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+  <!-- CSS Reset -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+  <!-- Milligram CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+  <!-- You should properly set the path from the main file. -->
   <title>Kelime Analiz</title>
 </head>
 
@@ -23,24 +32,34 @@
 
     <div class="column">
       <h2>Sonuçlar burada görüntülenecektir.</h2>
-      <p> Girilen metin: {{input_data}}
 
-      </p>
-
+      <table>
+        <tbody>
+          <tr>
+            <td>Girilen Metin</td>
+            <td>{{input_data}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <script>
-const DataAnaliz = {
-  data() {
-    return {
-      input_data:'',
-      counter: 0
-    }
-  }
-}
+    const DataAnaliz = {
+      data() {
+        return {
+          input_data: 'Buraya veri girilecek. Girilen veri aşağıda gösterilecek.',
+        }
 
-Vue.createApp(DataAnaliz).mount('#app1')
+        methods: {
+
+
+
+        }
+      }
+    }
+
+    Vue.createApp(DataAnaliz).mount('#app1')
 
 
 
