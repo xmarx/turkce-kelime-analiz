@@ -41,6 +41,10 @@
             <td>{{kelimeKelime}}</td>
           </tr>
           <tr>
+            <td>Kelime Kelime 2</td>
+            <td><span class="kelime" v-for="kelime in kelimeler">{{kelime}}</span></td>
+          </tr>
+          <tr>
             <td>Kelime Sayısı</td>
             <td>{{kelimeSayisi}}</td>
           </tr>
@@ -58,6 +62,7 @@
       data() {
         return {
           input_data: 'Buraya veri girilecek. Girilen veri aşağıda gösterilecek.',
+          kelimeler: []
         }
 
 
@@ -65,7 +70,7 @@
 
       computed: {
         kelimeKelime() {
-          return this.input_data.split(' ');
+          return this.kelimeler = this.input_data.split(' ');
         },
         kelimeSayisi() {
           return this.input_data.split(' ').length
