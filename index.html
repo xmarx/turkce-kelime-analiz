@@ -21,29 +21,30 @@
   <title>Kelime Analiz</title>
 </head>
 
-<body>
-  <div id="app1" class="cont">
+<body >
+  <div class="cont">
+  <div class="container">
+    <div class="row">
+      <div class="column"><a class="button" href="#">Nedir?</a> </div>
+      <div class="column"><a class="button" href="#">Nedir?</a> </div>
+      <div class="column"><a class="button" href="#">Nedir?</a> </div>
+    </div>
+  </div>
+
+  <div id="app1">
     <div class="column">
       <h2>Metin giriniz veya varolan metni düzenleyiniz.</h2>
-      <textarea v-model="input_data" cols="10" rows="5"></textarea>
+      <textarea v-model="input_data" cols="10" rows="15"></textarea>
 
     </div>
-
+<hr>
     <div class="column">
       <h2>Sonuçlar burada görüntülenecektir.</h2>
       <table>
         <tbody>
-          <!-- <tr>
-            <td>Girilen Metin</td>
-            <td>{{input_data}}</td>
-          </tr> -->
-          <!-- <tr>
-            <td>Kelime Kelime</td>
-            <td>{{kelimeKelime2}}</td>
-          </tr>  -->
           <tr>
-            <td>Kelime Kelime 2</td>
-            <td><span class="kelime" v-for="kelime in kelimeler2">{{kelime[0]}}</span></td>
+            <td style="max-width: 10px;">Kelime Kelime</td>
+            <td><span class="kelime" v-for="kelime in kelimeKelime">{{kelime[0]}}</span></td>
           </tr>
           <tr>
             <td>Kelime Sayısı</td>
@@ -57,14 +58,21 @@
       </table>
     </div>
   </div>
-
+</div>
   <script>
+
+    //kullanılacak değişkenler..
+    var patt = new RegExp(/[A-Za-z0-9_şçöğüıİ]+/g);
+    var input_data = '';
+
+
+    // Vue3 işlemleri
     const DataAnaliz = {
+
       data() {
         return {
-          input_data: 'Buraya veri girilecek. Girilen veri aşağıda gösterilecek.',
-          kelimeler: [],
-          kelimeler2: ""
+          input_data: 'Pelikan monotipik pelikangiller (Pelecanidae) familyasını ve Pelecanus cinsini oluşturan iri su kuşu türlerinin ortak adı. Uzun gagaları, avlanmak için kullandıkları ve yutmadan önce gagalarıyla topladıkları avın bulunduğu suyu süzmeye yarayan geniş boğaz keseleri en ayırt edici özellikleridir. Kahverengi pelikan ve Peru pelikanı dışındaki türlerinin tüyleri genellikle soluk renklidir. Tüm türlerinin gagaları, keseleri ve yüzlerindeki tüysüz deri, üreme mevsiminden önce parlak renklere kavuşur. Yaşayan sekiz türü dönencelerden ılıman kuşağa kadar olan bölgelerde yaşar ancak Güney Amerika\'nın iç kısmında, kutup bölgelerinde ve açık denizde bulunmazlar. ',
+          kelimeler: [...input_data.matchAll(patt)]
         }
 
 
@@ -72,13 +80,13 @@
 
       computed: {
 
-        kelimeKelime2() {
-          var patt = new RegExp(/[A-Za-z0-9_şçöğüıİ]+/g);
-          return this.kelimeler2 = [...this.input_data.matchAll(patt)];
+        kelimeKelime() {
+
+          return this.kelimeler = [...this.input_data.matchAll(patt)];
           // patt.exec(this.input_data);
         },
         kelimeSayisi() {
-          return this.kelimeler2.length
+          return this.kelimeler.length
         },
         cumleSayisi() {
           return this.input_data.split('.').length
