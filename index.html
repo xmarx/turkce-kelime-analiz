@@ -26,24 +26,24 @@
     <div class="column">
       <h2>Metin giriniz veya varolan metni düzenleyiniz.</h2>
       <textarea v-model="input_data" cols="10" rows="5"></textarea>
-      <!-- https://tr.wikisource.org/wiki/Bomba Ömer Seyfettin -->
+
     </div>
 
     <div class="column">
       <h2>Sonuçlar burada görüntülenecektir.</h2>
       <table>
         <tbody>
-          <tr>
+          <!-- <tr>
             <td>Girilen Metin</td>
             <td>{{input_data}}</td>
-          </tr>
-          <tr>
+          </tr> -->
+          <!-- <tr>
             <td>Kelime Kelime</td>
-            <td>{{kelimeKelime}}</td>
-          </tr>
+            <td>{{kelimeKelime2}}</td>
+          </tr>  -->
           <tr>
             <td>Kelime Kelime 2</td>
-            <td><span class="kelime" v-for="kelime in kelimeler">{{kelime}}</span></td>
+            <td><span class="kelime" v-for="kelime in kelimeler2">{{kelime[0]}}</span></td>
           </tr>
           <tr>
             <td>Kelime Sayısı</td>
@@ -63,20 +63,24 @@
       data() {
         return {
           input_data: 'Buraya veri girilecek. Girilen veri aşağıda gösterilecek.',
-          kelimeler: []
+          kelimeler: [],
+          kelimeler2: ""
         }
 
 
       },
 
       computed: {
-        kelimeKelime() {
-          return this.kelimeler = this.input_data.split(' ');
+
+        kelimeKelime2() {
+          var patt = new RegExp(/[A-Za-z0-9_şçöğüıİ]+/g);
+          return this.kelimeler2 = [...this.input_data.matchAll(patt)];
+          // patt.exec(this.input_data);
         },
         kelimeSayisi() {
-          return this.input_data.split(' ').length
+          return this.kelimeler2.length
         },
-        cumleSayisi(){
+        cumleSayisi() {
           return this.input_data.split('.').length
         }
       }
