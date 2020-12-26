@@ -85,7 +85,7 @@
       data() {
         return {
           input_data: 'Pelikan monotipik pelikangiller (Pelecanidae) familyasını ve Pelecanus cinsini oluşturan iri su kuşu türlerinin ortak adı. Uzun gagaları, avlanmak için kullandıkları ve yutmadan önce gagalarıyla topladıkları avın bulunduğu suyu süzmeye yarayan geniş boğaz keseleri en ayırt edici özellikleridir. Kahverengi pelikan ve Peru pelikanı dışındaki türlerinin tüyleri genellikle soluk renklidir. Tüm türlerinin gagaları, keseleri ve yüzlerindeki tüysüz deri, üreme mevsiminden önce parlak renklere kavuşur. Yaşayan sekiz türü dönencelerden ılıman kuşağa kadar olan bölgelerde yaşar ancak Güney Amerika\'nın iç kısmında, kutup bölgelerinde ve açık denizde bulunmazlar. ',
-          kelimeler: "",
+          kelimeler:'',
           cumleler: "",
         }
 
@@ -100,19 +100,37 @@
           // patt.exec(this.input_data);
         },
         kelimeSayisi() {
-          return this.kelimeler.length
+          return this.kelimeSayisi = this.kelimeler.length
+        },
+
+        kelimeAnaliz(){
+          var kelimeler = kelimeBul();
+          var kListesi = {};
+          // kelimeler.forEach( element => {
+            
+          // });
+
+          
+
         },
         cumleBul() {
-          return this.cumleler = [...this.input_data.split(regex.cumle_regex)]
+          this.cumleler = [...this.input_data.split(regex.cumle_regex)]
+          this.cumleler.forEach(element => {
+            if(element.length==0){
+              this.cumleler.splice(this.cumleler.indexOf(element),1)
+            };
+          });
+          // Eğer boş cümle varsa siliyoruz.
+          return this.cumleler;
+
         },
 
         cumleSayisi() {
-          return this.cumleler.length
+          return this.cumleSayisi = this.cumleler.length
         }
       }
 
     }
-
     Vue.createApp(DataAnaliz).mount('#app1')
 
 

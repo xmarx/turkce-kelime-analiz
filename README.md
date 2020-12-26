@@ -27,7 +27,7 @@ Son aşama
 * Metnin ne konuda olduğunu tespit etme
 
 
-## Neler Yapacağız?
-Henüz bilmiyorum ama şöyle düşünüyorum.
-
-Öncelikle javascript ile metni analiz edelim. Burada vue.js kullanmayı düşünüyorum. Ona da yeni başladım. Sonraki aşamalara bakarız.
+## Ne Durumdayız. Yapacağız?
+* Github projesi oluşturuldu.
+* Temel HTML, CSS dosyası oluşturuldu. CSS kütüphanesi olarak miligram.css kullanılıyor.
+* 
