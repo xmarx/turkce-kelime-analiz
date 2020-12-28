@@ -8,6 +8,21 @@
   margin: 0 auto;
 }
 
+
+.p10 {
+  padding: 10px;
+}
+
+.tc {
+  text-align: end;
+}
+
+.menu {
+  background-color:lightgray;
+  height: 6rem;
+  padding-top: 1rem;
+}
+
 span.kelime {
   background-color: blue;
   border-radius: 10px;

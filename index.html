@@ -22,39 +22,56 @@
 </head>
 
 <body>
-    <div id="app1">
-      <div class="column">
-        <h2>Metin giriniz veya varolan metni düzenleyiniz.</h2>
-        <textarea v-model="input_data" cols="10" rows="15"></textarea>
-
-      </div>
-      <hr>
-      <div class="column">
-        <h2>Sonuçlar burada görüntülenecektir.</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td style="max-width: 10px;">Kelime Kelime</td>
-              <td><span class="kelime" v-for="kelime in kelimeBul">{{kelime[0]}}</span></td>
-            </tr>
-            <tr>
-              <td>Cümleler</td>
-              <td>
-                <p v-for="cumle in cumleBul">{{cumle}}</p>
-              </td>
-            </tr>
-            <tr>
-              <td>Kelime Sayısı</td>
-              <td>{{kelimeSayisi}}</td>
-            </tr>
-            <tr>
-              <td>Cümle Sayısı</td>
-              <td>{{cumleSayisi}}</td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="menu">
+    <div class="row-center cont">
+      <div class="row">
+        <div class="column">
+          <a class="button button-clear" href="#"><strong> Kelime Analiz</strong></a>
+        </div>
+        <div class="column">
+          <div class="row">
+            <div class="column column-center"><a class="button button-clear" href="#">Sıfırla</a> </div>
+            <div class="column column-center"><a class="button button-clear" href="#">Hakkında</a> </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <div id="app1" class="cont">
+
+    <div class="column p10">
+      <h2 style="margin-bottom: 0px;">Metin giriniz</h2>
+      <p><small> Veya varolan metni düzenleyiniz</small></p>
+      <textarea v-model="input_data" cols="10" rows="15"></textarea>
+
+    </div>
+    <hr>
+    <div class="column">
+      <h2>Sonuçlar</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td style="max-width: 10px;">Kelime Kelime</td>
+            <td><span class="kelime" v-for="kelime in kelimeBul">{{kelime[0]}}</span></td>
+          </tr>
+          <tr>
+            <td>Cümleler</td>
+            <td>
+              <p v-for="cumle in cumleBul">{{cumle}}</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Kelime Sayısı</td>
+            <td>{{kelimeSayisi}}</td>
+          </tr>
+          <tr>
+            <td>Cümle Sayısı</td>
+            <td>{{cumleSayisi}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   </div>
   <script>
 
@@ -62,7 +79,7 @@
     //kullanılacak değişkenler..
 
     var regex = {
-      "kelime_regex": RegExp(/[A-Za-z_ŞşÇçĞğÜüÖöİı]+/g),
+      "kelime_regex": RegExp(/[A-Za-z0-9_ŞşÇçĞğÜüÖöİı]+/g),
       "cumle_regex": RegExp(/[\.\!]+\s*|\n+\s*/g),
 
     };
@@ -74,7 +91,7 @@
       data() {
         return {
           input_data: 'Pelikan monotipik pelikangiller (Pelecanidae) familyasını ve Pelecanus cinsini oluşturan iri su kuşu türlerinin ortak adı. Uzun gagaları, avlanmak için kullandıkları ve yutmadan önce gagalarıyla topladıkları avın bulunduğu suyu süzmeye yarayan geniş boğaz keseleri en ayırt edici özellikleridir. Kahverengi pelikan ve Peru pelikanı dışındaki türlerinin tüyleri genellikle soluk renklidir. Tüm türlerinin gagaları, keseleri ve yüzlerindeki tüysüz deri, üreme mevsiminden önce parlak renklere kavuşur. Yaşayan sekiz türü dönencelerden ılıman kuşağa kadar olan bölgelerde yaşar ancak Güney Amerika\'nın iç kısmında, kutup bölgelerinde ve açık denizde bulunmazlar. ',
-          kelimeler:'',
+          kelimeler: '',
           cumleler: "",
         }
 
@@ -90,19 +107,19 @@
           return this.kelimeSayisi = this.kelimeler.length
         },
 
-        kelimeAnaliz(){
+        kelimeAnaliz() {
           var kelimeler = kelimeBul();
           var kListesi = {};
           // kelimeler.forEach( element => {
-            
+
           // });
 
         },
         cumleBul() {
           this.cumleler = [...this.input_data.split(regex.cumle_regex)]
           this.cumleler.forEach(element => {
-            if(element.length==0){
-              this.cumleler.splice(this.cumleler.indexOf(element),1)
+            if (element.length == 0) {
+              this.cumleler.splice(this.cumleler.indexOf(element), 1)
             };
           });
           // Eğer boş cümle varsa siliyoruz.
