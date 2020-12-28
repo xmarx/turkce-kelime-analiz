@@ -22,15 +22,6 @@
 </head>
 
 <body>
-  <div class="cont">
-    <div class="container">
-      <div class="row">
-        <div class="column"><a class="button" href="#">Nedir?</a> </div>
-        <div class="column"><a class="button" href="#">Nedir?</a> </div>
-        <div class="column"><a class="button" href="#">Nedir?</a> </div>
-      </div>
-    </div>
-
     <div id="app1">
       <div class="column">
         <h2>Metin giriniz veya varolan metni düzenleyiniz.</h2>
@@ -69,19 +60,13 @@
 
 
     //kullanılacak değişkenler..
-<<<<<<< HEAD
+
     var regex = {
       "kelime_regex": RegExp(/[A-Za-z_ŞşÇçĞğÜüÖöİı]+/g),
       "cumle_regex": RegExp(/[\.\!]+\s*|\n+\s*/g),
 
     };
-
-
-=======
-    var patt = new RegExp(/[A-Za-z0-9_ŞÇĞÜÖşçöğüıİ]+/g);
->>>>>>> 0f23047d1c721c6166c16789056b709cfbcfdd3b
     var input_data = '';
-
 
     // Vue3 işlemleri
     const DataAnaliz = {
@@ -99,9 +84,7 @@
       computed: {
 
         kelimeBul() {
-
           return this.kelimeler = [...this.input_data.matchAll(regex.kelime_regex)];
-          // patt.exec(this.input_data);
         },
         kelimeSayisi() {
           return this.kelimeSayisi = this.kelimeler.length
@@ -113,8 +96,6 @@
           // kelimeler.forEach( element => {
             
           // });
-
-          
 
         },
         cumleBul() {
