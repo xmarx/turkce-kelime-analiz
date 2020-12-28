@@ -68,6 +68,10 @@
             <td>Cümle Sayısı</td>
             <td>{{cumleSayisi}}</td>
           </tr>
+          <tr>
+            <td>KListesi</td>
+            <td>{{kelimeAnaliz}}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -93,6 +97,7 @@
           input_data: 'Pelikan monotipik pelikangiller (Pelecanidae) familyasını ve Pelecanus cinsini oluşturan iri su kuşu türlerinin ortak adı. Uzun gagaları, avlanmak için kullandıkları ve yutmadan önce gagalarıyla topladıkları avın bulunduğu suyu süzmeye yarayan geniş boğaz keseleri en ayırt edici özellikleridir. Kahverengi pelikan ve Peru pelikanı dışındaki türlerinin tüyleri genellikle soluk renklidir. Tüm türlerinin gagaları, keseleri ve yüzlerindeki tüysüz deri, üreme mevsiminden önce parlak renklere kavuşur. Yaşayan sekiz türü dönencelerden ılıman kuşağa kadar olan bölgelerde yaşar ancak Güney Amerika\'nın iç kısmında, kutup bölgelerinde ve açık denizde bulunmazlar. ',
           kelimeler: '',
           cumleler: "",
+          KelimeListesi: "",
         }
 
 
@@ -108,13 +113,32 @@
         },
 
         kelimeAnaliz() {
-          var kelimeler = kelimeBul();
+          var kelimeler = this.kelimeler;
           var kListesi = {};
-          // kelimeler.forEach( element => {
+          for (let index = 0; index < kelimeler.length; index++) {
+            const element = kelimeler[index];
+            const ele = element;
+            kListesi[element] = ele[0].length;
 
-          // });
+          }
+          return this.KelimeListesi = kListesi;
 
         },
+
+        EnUzunKelime() {
+          var kListesi = this.KelimeListesi;
+          var EnUzunKelimeler = [];
+          var max1 = 0;
+
+          kListesi.forEach(index, item, function () {
+            if (item > max1) {
+              max1 = item;
+            }
+          });
+
+          return max1;
+        },
+
         cumleBul() {
           this.cumleler = [...this.input_data.split(regex.cumle_regex)]
           this.cumleler.forEach(element => {
